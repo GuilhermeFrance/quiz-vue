@@ -27,8 +27,8 @@ export default {
   },
 computed: {
   answers(){
-  var answers = [...this.IncorrectAnswer];
-  answers.push(this.CorrectAnswer)
+  var answers = JSON.parse(JSON.stringify(this.IncorrectAnswer));
+  answers.splice( Math.round(Math.random()*4 ), 0, this.CorrectAnswer)
   return answers;
   }
 },
@@ -44,7 +44,7 @@ computed: {
   },
 }
 
-//https://opentdb.com/api.php?amount=1&category=15&difficulty=medium
+
 </script>
 
 <style lang="scss">
